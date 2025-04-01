@@ -1,3 +1,32 @@
+# React Song Selector
+
+A simple React application that allows users to play different bird songs. The application features two buttons that play different Caspian Tern bird calls.
+
+## Features
+
+- Play/pause functionality for two different bird songs
+- Simple and intuitive user interface
+- Audio playback controls
+
+## Technologies Used
+
+- React
+- JavaScript
+- HTML5 Audio API
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
