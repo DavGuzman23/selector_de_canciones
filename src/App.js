@@ -1,36 +1,43 @@
+import React from 'react';
 import './App.css';
+import AudioPlayer from './components/AudioPlayer';
+import { AudioProvider } from './context/AudioContext';
 
 function App() {
-  const bird1 = new Audio(
-    "https://upload.wikimedia.org/wikipedia/commons/9/9b/Hydroprogne_caspia_-_Caspian_Tern_XC432679.mp3"
-  );
-
-  const bird2 = new Audio(
-    "https://upload.wikimedia.org/wikipedia/commons/b/b5/Hydroprogne_caspia_-_Caspian_Tern_XC432881.mp3"
-  );
-
-  function toggle1() {
-    if (bird1.paused) {
-      bird1.play();
-      bird2.pause();
-    } else {
-      bird1.pause();
+  const songs = [
+    {
+      id: 1,
+      title: "Caspian Tern Call 1",
+      url: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Hydroprogne_caspia_-_Caspian_Tern_XC432679.mp3"
+    },
+    {
+      id: 2,
+      title: "Caspian Tern Call 2",
+      url: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Hydroprogne_caspia_-_Caspian_Tern_XC432881.mp3"
     }
-  };
-
+  ];
 
   return (
-    <div>
-      <button onClick={toggle1}>Caspian Tern 1</button>
-      <button onClick={() => {
-        if (bird2.paused) {
-          bird2.play();
-          bird1.pause();
-        } else {
-          bird2.pause();
-        }
-      }}>Caspian Tern 2</button>
-    </div>
+    <AudioProvider>
+      <div className="app">
+        <header className="app-header">
+          <h1>Bird Song Player</h1>
+          <p>Listen to different Caspian Tern calls</p>
+        </header>
+        <main className="app-main">
+          <div className="songs-container">
+            {songs.map(song => (
+              <AudioPlayer
+                key={song.id}
+                id={song.id}
+                audioUrl={song.url}
+                title={song.title}
+              />
+            ))}
+          </div>
+        </main>
+      </div>
+    </AudioProvider>
   );
 }
 
